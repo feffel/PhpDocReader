@@ -36,6 +36,11 @@ class PhpDocReader
         'mixed',
     );
 
+    private $selfKeywords = [
+        'self',
+        'static',
+    ];
+
     /**
      * Enable or disable throwing errors when PhpDoc Errors occur (when parsing annotations)
      * 
@@ -228,6 +233,9 @@ class PhpDocReader
      */
     private function tryResolveFqn($type, ReflectionClass $class, Reflector $member) 
     {
+        if (\in_array($type, $this->selfKeywords, true)) {
+            return $class->name;
+        }
         $alias = ($pos = strpos($type, '\\')) === false ? $type : substr($type, 0, $pos);
         $loweredAlias = strtolower($alias);
 
