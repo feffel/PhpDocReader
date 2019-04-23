@@ -1,6 +1,6 @@
 # PhpDocReader
 
-[![Build Status](https://img.shields.io/travis/PHP-DI/PhpDocReader.svg)](https://travis-ci.org/mnapoli/PhpDocReader)
+[![Build Status](https://img.shields.io/travis/PHP-DI/PhpDocReader.svg)](https://travis-ci.com/feffel/PhpDocReader)
 ![](https://img.shields.io/packagist/dt/PHP-DI/phpdoc-reader.svg)
 
 This project is used by:
@@ -36,6 +36,7 @@ class Cache
 
 It supports namespaced class names with the same resolution rules as PHP:
 
+- `self` and `static` keywords
 - fully qualified name (starting with `\`)
 - imported class name (eg. `use My\Cache\Backend;`)
 - relative class name (from the current namespace, like `SubNamespace\MyClass`)
